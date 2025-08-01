@@ -102,7 +102,7 @@ gsap.from(".testimonials", {
   }
 });
 
-// Fade in .img-section
+// // Fade in .img-section
 gsap.from(".img-section", {
   opacity: 0,
   y: 50,
@@ -127,9 +127,35 @@ gsap.from(".footer", {
 });
 
 const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
+const mobileMenu = document.querySelector(".mobile-menu");
+let menuOpen = false;
 
 hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
+  if (!menuOpen) {
+    gsap.set(mobileMenu, { display: "flex", opacity: 0, y: -50 });
+
+    gsap.to(mobileMenu, {
+      y: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+
+    menuOpen = true;
+  } else {
+    gsap.to(mobileMenu, {
+      y: -50,
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => {
+        mobileMenu.style.display = "none";
+      },
+    });
+
+    menuOpen = false;
+  }
 });
+
+
 
