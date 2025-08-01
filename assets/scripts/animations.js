@@ -157,5 +157,51 @@ hamburger.addEventListener("click", () => {
   }
 });
 
+document.addEventListener("click", (e) => {
+  const isClickInsideMenu = mobileMenu.contains(e.target);
+  const isClickOnHamburger = hamburger.contains(e.target);
+
+  if (!isClickInsideMenu && !isClickOnHamburger && menuOpen) {
+    gsap.to(mobileMenu, {
+      y: -50,
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => {
+        mobileMenu.style.display = "none";
+      },
+    });
+    menuOpen = false;
+  }
+});
+
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener("touchstart", (e) => {
+  touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener("touchend", (e) => {
+  touchEndY = e.changedTouches[0].screenY;
+
+  const deltaY = touchEndY - touchStartY;
+
+  // User swiped up by at least 50px
+  if (deltaY < -50 && menuOpen) {
+    gsap.to(mobileMenu, {
+      y: -50,
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => {
+        mobileMenu.style.display = "none";
+      }
+    });
+    menuOpen = false;
+  }
+});
+
+
 
 
