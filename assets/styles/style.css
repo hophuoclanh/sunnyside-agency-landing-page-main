@@ -67,7 +67,7 @@ html, body {
     text-align: center;
     align-items: center;
     overflow: hidden; 
-    height: 90vh;
+    height: 58rem;
     position: relative;
 }
 
@@ -84,7 +84,7 @@ html, body {
 .hero .arrow {
     height: 100px;
     position: absolute;
-    transform: translateY(250%);
+    transform: translateY(16rem);
     z-index: 2;
     width: 40px;
 }
@@ -421,7 +421,7 @@ html, body {
 
 @media screen and (max-width: 768px) {
     .hero {
-        height: 80vh;
+        height: 33rem;
         padding-bottom: 3rem;
     }
 
@@ -434,7 +434,7 @@ html, body {
 
     .hero .arrow {
         height: 15%;
-        transform: translateY(200%);
+        transform: translateY(15rem);
     }
 
     .hero .orange-wrapper {
@@ -567,6 +567,60 @@ html, body {
     .attribution {
         font-size: 12px;
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .section {
+        flex-direction: column;
+    }
+
+    .section .content {
+        order: 2;
+        padding: 3rem 0;
+    }
+
+    .section .image-wrapper {
+        order: 1;
+    }
+
+    .section .content, .section .image-wrapper {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .section .content h2 {
+        width: 80%;
+        font-size: 30px;
+        margin-bottom: 1rem;
+    }
+
+    .section .content p {
+        width: 80%
+    }
+
+    .section .content a::after {
+        left: 25%;
+        bottom: 38%;
+        width: 50%;
+        height: 0.5em;
+        background-color: #fef3bd;
+        z-index: -1;
+        border-radius: 2px;
+    }
+
+    .section .wrapper-content .content1 {
+        left: 55%;
+        transform: translateX(-50%);
+        bottom: 5%;
+        width: 90%;
+    }
+
+    .section .wrapper-content .content1 h2,
+    .section .wrapper-content .content1 p {
+        width: 90%;
+        font-size: 1rem;
     }
 }
 
